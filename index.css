@@ -60,3 +60,7 @@ main {
     margin: 0.2rem auto;
 }
 
+#time {
+    font-size: 4rem;
+    letter-spacing: 0.3rem;
+}

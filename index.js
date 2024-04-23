@@ -1,5 +1,6 @@
 const author = document.getElementById('author')
 const crytopsEl = document.getElementById('crytops')
+const timeEl = document.getElementById('time')
 
 let cryptoElement = []
 
@@ -56,5 +57,15 @@ function setCryptoElement(cryptoData) {
     )
 }
 
+function displayCurrentTime() {
+    const date = new Date()
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    setInterval(() => {
+        timeEl.textContent = hours > 12 ? `${hours - 12}:${minutes} PM` : `${hours}:${minutes} AM`
+    }, 1000)
+}
+
 getRandomImage()
 getCrypto("dogecoin")
+displayCurrentTime()
