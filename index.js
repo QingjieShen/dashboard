@@ -1,5 +1,7 @@
 const author = document.getElementById('author')
+const crytopsEl = document.getElementById('crytops')
 
+let cryptoElement = []
 
 async function getRandomImage() {
     // const res = await fetch('https://api.unsplash.com/photos/random?orientation=landscape&query=nature?client_id=S_t6lYdKmSMtrIQaj72iYibQxW3qOSRhp-w_NcMZLXk')
@@ -25,11 +27,27 @@ async function getRandomImage() {
 async function getCrypto(id) {
     try {
         const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`)
-        const data = await res.json()
-        console.log(data)
+        if (res.ok) {
+            const data = await res.json()
+            console.log(data)
+            cryptoElement = []
+            setCryptoElement(data)
+            crytopsEl.innerHTML = cryptoElement.join()
+        } else {
+            throw Error(`Something went wrong. Error code: ${res.status}`)
+        }
     } catch(err) {
-        console.log(err)
+        console.error(err)
     }
+}
+
+function setCryptoElement(cryptoData) {
+    cryptoElement.push (
+        `<div class="cryptoUnit">
+            <img src=${cryptoData.image.small} />
+            <p>${cryptoData.name}</p>
+        </div>`
+    )
 }
 
 getRandomImage()
