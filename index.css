@@ -25,3 +25,8 @@ main {
     justify-content: space-between;
     align-items: center;
 }
+
+.crypto {
+    display: flex;
+    justify-content: space-between;
+}
