@@ -46,6 +46,12 @@ function setCryptoElement(cryptoData) {
         `<div class="cryptoUnit">
             <img src=${cryptoData.image.small} />
             <p>${cryptoData.name}</p>
+        </div>
+        <div class="price-info">
+            <p>Update Time: ${cryptoData.last_updated}</p>
+            <p>Current price: $${cryptoData.market_data.current_price.usd}</p>
+            <p>24-hour high price: $${cryptoData.market_data.high_24h.usd}</p>
+            <p>24-hour low price: $${cryptoData.market_data.low_24h.usd}</p>
         </div>`
     )
 }

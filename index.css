@@ -36,6 +36,10 @@ main {
 
 .cryptos {
     display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.292);
+    padding: 1rem;
+    border-radius: 10px;
 }
 
 .cryptoUnit {
@@ -45,6 +49,14 @@ main {
 
 .cryptoUnit img {
     width: 40px;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+}
+
+.price-info {
+    margin-top: 0.5rem;
+}
+
+.price-info p {
+    margin: 0.2rem auto;
 }
 
