@@ -86,3 +86,7 @@ main {
 .weather p:nth-child(2) {
     font-size: 1.5rem;
 }
+
+#author {
+    margin-bottom: 1rem;
+}
