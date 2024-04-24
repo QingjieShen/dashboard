@@ -102,6 +102,6 @@ function getWeather() {
 }
 
 getRandomImage()
-getCrypto("dogecoin")
+getCrypto("bitcoin")
 getWeather()
 setInterval(displayCurrentTime, 1000)
