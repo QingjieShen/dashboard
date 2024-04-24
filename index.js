@@ -12,8 +12,8 @@ async function getRandomImage() {
             throw Error(`Something went wrong. Error code: ${res.status}`)
         } else {
             const data = await res.json()
-            console.log(data)
-            console.log(data.urls.full)
+            // console.log(data)
+            // console.log(data.urls.full)
             document.body.style.backgroundImage = `url(${data.urls.full})`
             author.textContent = `Photo By: ${data.user.name}`
         }
@@ -30,12 +30,26 @@ async function getCrypto(id) {
         const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`)
         if (res.ok) {
             const data = await res.json()
-            console.log(data)
+            // console.log(data)
             cryptoElement = []
             setCryptoElement(data)
             crytopsEl.innerHTML = cryptoElement.join()
         } else {
             throw Error(`Something went wrong. Error code: ${res.status}`)
+        }
+    } catch(err) {
+        console.error(err)
+    }
+}
+
+async function getWeatherData(lat, lon) {
+    try {
+        const res = await fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric`)
+        if (res.ok) {
+            const data = await res.json()
+            console.log(data)
+        } else {
+            throw Error("Get Weather data failed.")
         }
     } catch(err) {
         console.error(err)
@@ -68,7 +82,18 @@ function displayCurrentTime() {
      */
 }
 
+function getWeather() {
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            // console.log(position.coords.latitude, position.coords.longitude)
+            getWeatherData(position.coords.latitude, position.coords.longitude)
+        })
+    } else {
+        alert('Your geolocation is not available')
+    }
+}
+
 getRandomImage()
 getCrypto("dogecoin")
-
+getWeather()
 setInterval(displayCurrentTime, 1000)
