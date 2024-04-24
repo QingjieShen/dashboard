@@ -51,7 +51,10 @@ async function getWeatherData(lat, lon) {
             console.log(data)
             weatherEl.innerHTML = `
                 <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" />
-                <p>${data.main.temp} °C</p>
+                <div>
+                    <p>${Math.round(data.main.temp)} °C</p>
+                    <p>${data.name}</p>
+                </div>
             `
         } else {
             throw Error("Get Weather data failed.")
