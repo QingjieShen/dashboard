@@ -48,7 +48,7 @@ async function getWeatherData(lat, lon) {
         const res = await fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric`)
         if (res.ok) {
             const data = await res.json()
-            console.log(data)
+            // console.log(data)
             weatherEl.innerHTML = `
                 <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" />
                 <div>
