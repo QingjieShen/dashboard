@@ -1,6 +1,7 @@
 const author = document.getElementById('author')
 const crytopsEl = document.getElementById('crytops')
 const timeEl = document.getElementById('time')
+const weatherEl = document.getElementById('weather')
 
 let cryptoElement = []
 
@@ -48,6 +49,10 @@ async function getWeatherData(lat, lon) {
         if (res.ok) {
             const data = await res.json()
             console.log(data)
+            weatherEl.innerHTML = `
+                <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" />
+                <p>${data.main.temp} °C</p>
+            `
         } else {
             throw Error("Get Weather data failed.")
         }

@@ -64,3 +64,20 @@ main {
     font-size: 4rem;
     letter-spacing: 0.3rem;
 }
+
+.weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.292);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.weather img {
+    width: 100%;
+}
+
+.weather p {
+    font-size: 2.5rem;
+}
